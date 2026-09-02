@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Veridia — soluções em logística e oportunidades de trabalho remoto.">
+  <title>Veridia | Logística & Home Office</title>
+  <style>
+    :root{
+      --bg:#f7f9fc; --surface:#fff; --text:#152238; --muted:#65748b;
+      --primary:#1769e0; --primary-dark:#0d4fb2; --accent:#22b573;
+      --border:#e6ebf2; --shadow:0 18px 50px rgba(20,45,80,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--primary)}
+    .logo span{color:var(--accent)}
+    .links{display:flex;gap:28px;align-items:center;font-size:15px;font-weight:600}
+    .links a:hover{color:var(--primary)}
+    .nav-btn,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:12px 20px;font-weight:700;transition:.2s}
+    .nav-btn,.btn-primary{background:var(--primary);color:white}
+    .nav-btn:hover,.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+    .btn-outline{border:1px solid #cdd7e5;background:white;color:var(--text)}
+    .btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+    .hero{padding:92px 0 82px;background:linear-gradient(135deg,#eef5ff 0%,#f7fbff 55%,#eefaf5 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-block;color:var(--primary);background:#e2efff;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:800;margin-bottom:18px}
+    h1{font-size:clamp(42px,6vw,68px);line-height:1.05;letter-spacing:-2.5px;margin-bottom:22px}
+    h1 span{color:var(--primary)}
+    .hero p{font-size:19px;color:var(--muted);max-width:640px;margin-bottom:30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-card{background:white;border:1px solid var(--border);border-radius:24px;padding:30px;box-shadow:var(--shadow)}
+    .hero-card .icon{width:58px;height:58px;border-radius:16px;background:#e8f3ff;display:grid;place-items:center;font-size:28px;margin-bottom:20px}
+    .hero-card h3{font-size:24px;margin-bottom:8px}
+    .hero-card p{font-size:15px;margin:0 0 20px}
+    .mini{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--border);font-size:14px}
+    .mini strong{color:var(--accent)}
+    section{padding:82px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 45px}
+    .section-head h2{font-size:38px;letter-spacing:-1px;margin-bottom:10px}
+    .section-head p{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:var(--surface);padding:30px;border:1px solid var(--border);border-radius:18px;box-shadow:0 8px 28px rgba(20,45,80,.05)}
+    .card .num{font-size:28px;font-weight:800;color:var(--primary);margin-bottom:12px}
+    .card h3{margin-bottom:9px;font-size:20px}
+    .card p{color:var(--muted);font-size:15px}
+    .jobs{background:#12233b;color:white}
+    .jobs .section-head p{color:#b9c6d8}
+    .job-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .job{background:#1a2f4d;border:1px solid #2b4160;padding:28px;border-radius:18px}
+    .job h3{margin-bottom:8px}
+    .job p{color:#bdc9d9;font-size:14px;margin-bottom:18px}
+    .tag{display:inline-block;background:#244263;color:#d9e8fb;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .contact{background:white}
+    .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:stretch}
+    .contact-info{background:linear-gradient(135deg,#1769e0,#0e53b9);color:white;padding:38px;border-radius:22px}
+    .contact-info h2{font-size:34px;margin-bottom:12px}
+    .contact-info p{color:#d9e8ff;margin-bottom:25px}
+    .contact-item{padding:16px 0;border-top:1px solid rgba(255,255,255,.2)}
+    .contact-item small{display:block;color:#b9d1f4;margin-bottom:3px}
+    .contact-item a{font-weight:700}
+    form{background:#f7f9fc;border:1px solid var(--border);padding:32px;border-radius:22px}
+    label{display:block;font-size:13px;font-weight:700;margin:0 0 7px}
+    input,textarea{width:100%;padding:13px 14px;border:1px solid #d7e0eb;border-radius:10px;background:white;font:inherit;margin-bottom:17px;outline:none}
+    input:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(23,105,224,.10)}
+    textarea{min-height:120px;resize:vertical}
+    footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid var(--border)}
+    @media(max-width:800px){
+      .links a:not(.nav-btn){display:none}
+      .hero-grid,.contact-box{grid-template-columns:1fr}
+      .cards,.job-grid{grid-template-columns:1fr}
+      .hero{padding:65px 0}
+      section{padding:60px 0}
+      h1{letter-spacing:-1.5px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#inicio">veri<span>dia</span></a>
+      <div class="links">
+        <a href="#empresa">A Veridia</a>
+        <a href="#oportunidades">Oportunidades</a>
+        <a href="#contato">Contato</a>
+        <a class="nav-btn" href="#contato">Fale conosco</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">LOGÍSTICA • HOME OFFICE</span>
+        <h1>Conectando pessoas, <span>operações</span> e oportunidades.</h1>
+        <p>A Veridia une soluções para o universo logístico a oportunidades de trabalho remoto, com foco em organização, eficiência e pessoas.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#oportunidades">Ver oportunidades</a>
+          <a class="btn btn-outline" href="#contato">Entrar em contato</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="icon">↗</div>
+        <h3>Trabalho conectado</h3>
+        <p>Uma proposta moderna para quem busca praticidade, organização e novas oportunidades profissionais.</p>
+        <div class="mini"><strong>01</strong> Atendimento e suporte</div>
+        <div class="mini"><strong>02</strong> Operações logísticas</div>
+        <div class="mini"><strong>03</strong> Oportunidades home office</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="empresa">
+    <div class="container">
+      <div class="section-head">
+        <h2>Por que Veridia?</h2>
+        <p>Uma marca pensada para tornar processos mais simples e aproximar talentos de oportunidades.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="num">01</div>
+          <h3>Eficiência</h3>
+          <p>Processos organizados e uma comunicação clara para apoiar cada etapa da operação.</p>
+        </article>
+        <article class="card">
+          <div class="num">02</div>
+          <h3>Flexibilidade</h3>
+          <p>Modelo de trabalho remoto que valoriza autonomia, responsabilidade e produtividade.</p>
+        </article>
+        <article class="card">
+          <div class="num">03</div>
+          <h3>Pessoas</h3>
+          <p>Conexões profissionais construídas com respeito, transparência e foco em resultados.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="jobs" id="oportunidades">
+    <div class="container">
+      <div class="section-head">
+        <h2>Oportunidades</h2>
+        <p>Confira exemplos de áreas que podem fazer parte da nossa operação.</p>
+      </div>
+      <div class="job-grid">
+        <article class="job">
+          <h3>Assistente de Operações</h3>
+          <p>Suporte às rotinas administrativas e acompanhamento de processos logísticos.</p>
+          <span class="tag">HOME OFFICE</span>
+        </article>
+        <article class="job">
+          <h3>Atendimento ao Cliente</h3>
+          <p>Atendimento, acompanhamento de solicitações e relacionamento com clientes.</p>
+          <span class="tag">REMOTO</span>
+        </article>
+        <article class="job">
+          <h3>Auxiliar Administrativo</h3>
+          <p>Organização de informações, documentos e apoio às atividades internas.</p>
+          <span class="tag">HOME OFFICE</span>
+        </article>
+        <article class="job">
+          <h3>Analista de Logística</h3>
+          <p>Acompanhamento de indicadores, fluxos operacionais e melhoria de processos.</p>
+          <span class="tag">REMOTO / HÍBRIDO</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-info">
+          <h2>Vamos conversar?</h2>
+          <p>Para informações, recrutamento ou dúvidas sobre a Veridia, entre em contato pelos canais abaixo.</p>
+          <div class="contact-item">
+            <small>Telefone / WhatsApp</small>
+            <a href="tel:+5511920733217">(11) 92073-3217</a>
+          </div>
+          <div class="contact-item">
+            <small>E-mail</small>
+            <a href="mailto:recrutamento.veridialogistica@proton.me">recrutamento.veridialogistica@proton.me</a>
+          </div>
+        </div>
+
+        <form onsubmit="sendMessage(event)">
+          <label for="name">Nome</label>
+          <input id="name" required placeholder="Seu nome">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" required placeholder="seu@email.com">
+          <label for="message">Mensagem</label>
+          <textarea id="message" required placeholder="Como podemos ajudar?"></textarea>
+          <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+          <p id="form-status" style="margin-top:12px;color:#65748b;font-size:13px"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Veridia. Todos os direitos reservados.
+</footer>
+
+<script>
+function sendMessage(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const message=document.getElementById('message').value.trim();
+  const subject=encodeURIComponent('Contato pelo site Veridia');
+  const body=encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`);
+  window.location.href=`mailto:recrutamento.veridialogistica@proton.me?subject=${subject}&body=${body}`;
+  document.getElementById('form-status').textContent='Abrindo seu aplicativo de e-mail...';
+}
+</script>
+</body>
+</html>
